@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "label": "Sailboat",
+  "icon": "⛵",
+  "description": "Wind that pushes us, anchors that hold us back, rocks ahead and the island we're sailing to.",
+  "types": [
+    {
+      "id": "wind",
+      "label": "Wind",
+      "icon": "🌬️",
+      "section": "wentWell",
+      "description": "What pushed us forward this period."
+    },
+    {
+      "id": "anchor",
+      "label": "Anchor",
+      "icon": "⚓",
+      "section": "didNotGoWell",
+      "description": "What slowed us down or held us back."
+    },
+    {
+      "id": "rock",
+      "label": "Rock",
+      "icon": "🪨",
+      "section": "didNotGoWell",
+      "description": "A risk ahead that could sink us if we ignore it."
+    },
+    {
+      "id": "island",
+      "label": "Island",
+      "icon": "🏝️",
+      "section": "actionItems",
+      "description": "Where we want to get to: a goal, or a change that would get us closer."
+    }
+  ],
+  "headings": {
+    "wentWell": "Wind (what pushed us forward)",
+    "didNotGoWell": "Anchors and rocks",
+    "actionItems": "Steering (action items)"
+  },
+  "questions": [
+    "Which one anchor could we cut loose this sprint?",
+    "Which rock worries us most, and who can help us steer around it?",
+    "Is the island still the right destination?"
+  ],
+  "aiGuidance": "Wind is what helped; anchors are current drag; rocks are future risks. Rank rocks by likelihood and impact. Suggest at most three action items, each tied to an anchor or a rock, and say which."
+}

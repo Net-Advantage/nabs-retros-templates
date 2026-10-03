@@ -1,0 +1,185 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Net-Advantage/nabs-launchpad-vs-extension/schemas/template.schema.json",
+  "title": "NABS Retros feedback template (template.json)",
+  "description": "A feedback template (retro format). Put it in <templates folder>/<id>/template.json, optionally with a retro.md next to it for the layout of retros created with it.",
+  "type": "object",
+  "required": [
+    "label",
+    "types"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "The JSON schema of this file (optional; VS Code applies it anyway)."
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,39}$",
+      "patternErrorMessage": "Use letters, digits, '-' or '_' (max 40), e.g. team-health.",
+      "description": "Optional: defaults to the folder name, and must match it if given. Saved in each retro's front matter, so don't change it once used."
+    },
+    "label": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Shown in the New Retro form and the Retros view."
+    },
+    "description": {
+      "type": "string",
+      "description": "A short explanation shown in the New Retro form."
+    },
+    "icon": {
+      "type": "string",
+      "maxLength": 8,
+      "description": "An emoji."
+    },
+    "types": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "label"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,39}$",
+            "patternErrorMessage": "Use letters, digits, '-' or '_' (max 40), e.g. went-well.",
+            "description": "Stored in the feedback file. Don't change it once used."
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Shown in the form and the Retros view."
+          },
+          "description": {
+            "type": "string",
+            "description": "A short explanation shown in the form."
+          },
+          "icon": {
+            "type": "string",
+            "maxLength": 8,
+            "description": "An emoji shown next to the label."
+          },
+          "section": {
+            "type": "string",
+            "enum": [
+              "wentWell",
+              "didNotGoWell",
+              "actionItems",
+              "none"
+            ],
+            "default": "none",
+            "enumDescriptions": [
+              "What went well",
+              "What didn't go well",
+              "Input for suggested action items",
+              "Not placed in a section by the plain summary"
+            ],
+            "description": "Which retro section this type feeds."
+          },
+          "prompt": {
+            "type": "string",
+            "description": "Text the feedback box starts with when this type is chosen, e.g. an outline to fill in (\"Why 1: … Why 5:\")."
+          }
+        }
+      }
+    },
+    "headings": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "wentWell": {
+          "type": "string"
+        },
+        "didNotGoWell": {
+          "type": "string"
+        },
+        "actionItems": {
+          "type": "string"
+        }
+      }
+    },
+    "ratingScale": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "value",
+          "label"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "value": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,39}$",
+            "description": "Stored in the feedback file, e.g. green."
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Shown in the form, e.g. Green: healthy."
+          },
+          "icon": {
+            "type": "string",
+            "maxLength": 8,
+            "description": "An emoji, e.g. 🟢."
+          },
+          "section": {
+            "type": "string",
+            "enum": [
+              "wentWell",
+              "didNotGoWell",
+              "actionItems",
+              "none"
+            ],
+            "description": "Overrides the type's section for entries with this rating."
+          }
+        }
+      }
+    },
+    "trendScale": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "value",
+          "label"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "value": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,39}$",
+            "description": "Stored in the feedback file, e.g. worse."
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Shown in the form, e.g. Getting worse."
+          },
+          "icon": {
+            "type": "string",
+            "maxLength": 8,
+            "description": "An emoji, e.g. ⬇️."
+          }
+        }
+      },
+      "description": "Optional second scale (e.g. improving / same / getting worse). Entries may pick one."
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "aiGuidance": {
+      "type": "string",
+      "description": "Extra instructions for Copilot when summarising feedback of this template."
+    }
+  }
+}

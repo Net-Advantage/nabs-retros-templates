@@ -1,0 +1,46 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "label": "Lean coffee",
+  "icon": "☕",
+  "description": "An agenda-less meeting: everyone proposes topics, the team votes, and each topic is discussed in a short timebox.",
+  "types": [
+    {
+      "id": "topic",
+      "label": "Topic",
+      "icon": "🗳️",
+      "section": "none",
+      "description": "Something you want to talk about. One topic per entry; the team votes on the order."
+    },
+    {
+      "id": "insight",
+      "label": "Insight",
+      "icon": "💡",
+      "section": "wentWell",
+      "description": "Something the team learned or agreed while discussing a topic."
+    },
+    {
+      "id": "concern",
+      "label": "Concern",
+      "icon": "🤔",
+      "section": "didNotGoWell",
+      "description": "Something left unresolved, or a worry a topic raised."
+    },
+    {
+      "id": "takeaway",
+      "label": "Takeaway",
+      "icon": "📌",
+      "section": "actionItems",
+      "description": "Something to do as a result of a discussion.",
+      "prompt": "Topic: \nWhat we will do: \nWho: "
+    }
+  ],
+  "headings": {
+    "wentWell": "Insights",
+    "didNotGoWell": "Open concerns",
+    "actionItems": "Takeaways (action items)"
+  },
+  "questions": [
+    "Which topics did we run out of time for, and do they need their own session?"
+  ],
+  "aiGuidance": "Topics are the agenda, not feedback: list them (most-mentioned first) but do not judge them. Summarise insights and concerns per topic where possible. Each takeaway should name its topic."
+}

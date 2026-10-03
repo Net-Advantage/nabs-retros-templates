@@ -1,0 +1,25 @@
+name: Validate templates
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Validate every template.json against the schema
+        # --strict=false: the schema also carries VS Code's editor hints (markdownDescription, patternErrorMessage, ...).
+        run: npx --yes ajv-cli@5.0.0 validate --spec=draft7 --strict=false --all-errors -s schemas/template.schema.json -d "templates/*/template.json"
+      - name: Validate templates.json
+        run: npx --yes ajv-cli@5.0.0 validate --spec=draft7 --strict=false --all-errors -s schemas/templates.schema.json -d templates/templates.json
+      - name: Check folders, ids, the default and the retro.md layouts
+        run: node scripts/check-templates.mjs

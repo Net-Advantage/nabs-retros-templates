@@ -1,0 +1,4 @@
+{
+  "$schema": "../schemas/templates.schema.json",
+  "default": "sailboat"
+}

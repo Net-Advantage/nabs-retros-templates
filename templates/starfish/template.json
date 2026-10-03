@@ -1,0 +1,53 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "label": "Starfish",
+  "icon": "⭐",
+  "description": "Keep doing, more of, less of, stop doing, start doing: a finer-grained take on start / stop / continue.",
+  "types": [
+    {
+      "id": "keep",
+      "label": "Keep doing",
+      "icon": "✅",
+      "section": "wentWell",
+      "description": "Working well; let's not lose it."
+    },
+    {
+      "id": "more",
+      "label": "More of",
+      "icon": "⬆️",
+      "section": "wentWell",
+      "description": "Good, and we'd get more value doing it more."
+    },
+    {
+      "id": "less",
+      "label": "Less of",
+      "icon": "⬇️",
+      "section": "didNotGoWell",
+      "description": "Some value, but it costs more than it gives."
+    },
+    {
+      "id": "stop",
+      "label": "Stop doing",
+      "icon": "🛑",
+      "section": "didNotGoWell",
+      "description": "No longer helping us; drop it."
+    },
+    {
+      "id": "start",
+      "label": "Start doing",
+      "icon": "🚀",
+      "section": "actionItems",
+      "description": "Something new to try."
+    }
+  ],
+  "headings": {
+    "wentWell": "Keep and more of",
+    "didNotGoWell": "Less of and stop",
+    "actionItems": "Start doing (action items)"
+  },
+  "questions": [
+    "What's one thing we'd stop today if nobody minded?",
+    "Which 'more of' would make the biggest difference next sprint?"
+  ],
+  "aiGuidance": "Group similar items. A 'stop' and a 'keep' about the same practice is a disagreement worth discussing: call it out rather than averaging it away. Turn the strongest 'start' items into concrete, owned action items."
+}

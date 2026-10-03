@@ -1,0 +1,53 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "label": "Glad / Sad / Mad + appreciations",
+  "icon": "💛",
+  "description": "The classic feelings retro, with appreciations for the people who helped and a separate place for ideas.",
+  "types": [
+    {
+      "id": "glad",
+      "label": "Glad",
+      "icon": "😀",
+      "section": "wentWell",
+      "description": "Something that made you happy or proud."
+    },
+    {
+      "id": "appreciation",
+      "label": "Appreciation",
+      "icon": "🙏",
+      "section": "wentWell",
+      "description": "Thank someone for something specific they did."
+    },
+    {
+      "id": "sad",
+      "label": "Sad",
+      "icon": "😢",
+      "section": "didNotGoWell",
+      "description": "Something disappointing, or that could have gone better."
+    },
+    {
+      "id": "mad",
+      "label": "Mad",
+      "icon": "😠",
+      "section": "didNotGoWell",
+      "description": "Something frustrating that got in the way."
+    },
+    {
+      "id": "idea",
+      "label": "Idea",
+      "icon": "💡",
+      "section": "actionItems",
+      "description": "Something we could try to make next sprint better."
+    }
+  ],
+  "headings": {
+    "wentWell": "Glad and appreciations",
+    "didNotGoWell": "Sad and mad",
+    "actionItems": "Ideas (action items)"
+  },
+  "questions": [
+    "Is there a pattern in what made us mad?",
+    "Who deserves a thank-you that they have not had yet?"
+  ],
+  "aiGuidance": "Keep appreciations as they are (with the names) and list them first. For sad and mad items, focus on situations and systems, never on blaming people. Suggest action items mainly from the ideas, linked to the sad or mad items they address."
+}
